@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Striker
+comment1.params=p
+comment1.target=Striker(Position)
+comment2.params=
+comment2.target=int\ getXPos()
+comment3.params=x
+comment3.target=void\ setXPos(int)
+comment4.params=
+comment4.target=int\ getYPos()
+comment5.params=y
+comment5.target=void\ setYPos(int)
+comment6.params=
+comment6.target=double\ getXVel()
+comment7.params=
+comment7.target=double\ getYVel()
+comment8.params=xVel
+comment8.target=void\ setXVel(double)
+comment9.params=yVel
+comment9.target=void\ setYVel(double)
+numComments=10

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Detection
+comment1.params=s\ a
+comment1.target=boolean\ collisionDetectorStrikerCoin(Striker,\ Coin)
+comment2.params=c\ d
+comment2.target=boolean\ collisionDetectorCoinCoin(Coin,\ Coin)
+numComments=3

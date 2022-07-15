@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=x\ y
+comment0.target=Vector(double,\ double)
+comment1.params=v
+comment1.target=Vector(Vector)
+comment2.params=d
+comment2.target=Vector\ scaledBy(double)
+comment3.params=
+comment3.target=double\ getMagnitude()
+comment4.params=a\ b
+comment4.target=double\ getDotProduct(Vector,\ Vector)
+comment5.params=
+comment5.target=double\ getX()
+comment6.params=x
+comment6.target=void\ setX(double)
+comment7.params=
+comment7.target=double\ getY()
+comment8.params=y
+comment8.target=void\ setY(double)
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10
