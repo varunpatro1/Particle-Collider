@@ -1,15 +1,11 @@
 // Varun Patro
-// Period 3A APCSA
-// 05/31/17
 
-public class Detection 
-{
-    public static boolean collisionDetectorStrikerCoin(Striker s, Coin a)
-    {
+public class Detection {
+    public static boolean collisionDetectorStrikerCoin(Striker s, Coin a){
         double xDistance = Math.abs(s.getXPos() - a.getXPos());
         double yDistance = Math.abs(s.getYPos() - a.getYPos());
         
-        if (Math.sqrt((Math.pow(xDistance, 2)) + Math.pow(yDistance, 2)) < (Striker.HALFWIDTH + Coin.WIDTH/2))
+        if (Math.sqrt((Math.pow(xDistance, 2)) + Math.pow(yDistance, 2)) <= (Striker.HALFWIDTH + Coin.WIDTH/2))
         {
             return true;
         }
@@ -21,7 +17,7 @@ public class Detection
         double xDistance = Math.abs(c.getXPos() - d.getXPos());
         double yDistance = Math.abs(c.getYPos() - d.getYPos());
         
-        if (Math.sqrt((Math.pow(xDistance, 2)) + Math.pow(yDistance, 2)) < (Coin.WIDTH/2 + Coin.WIDTH/2))
+        if (Math.sqrt((Math.pow(xDistance, 2)) + Math.pow(yDistance, 2)) <= (Coin.WIDTH/2 + Coin.WIDTH/2))
         {
             return true;
         }

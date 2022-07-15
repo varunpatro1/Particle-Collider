@@ -421,23 +421,19 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
         int x = striker.sPoint.x;
         int y = striker.sPoint.y;
 
-        if (x <= 18)
-        {
+        if (x <= 18){
             striker.xVel = -1 * striker.xVel;
         }
 
-        else if (y >= 782)
-        {
+        else if (y >= 782){
             striker.yVel = -1 * striker.yVel;
         }
 
-        else if (x >= 782)
-        {
+        else if (x >= 782){
             striker.xVel = -1 * striker.xVel;
         }
 
-        else if (y <= 77)
-        {
+        else if (y <= 18){
             striker.yVel = -1 * striker.yVel;
         }
     }
@@ -447,12 +443,12 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
         double x = a.getXPos();
         double y = a.getYPos();
 
-        if (x <= -30)
+        if (x <= 14)
         {
             a.xVel = -1 * a.xVel;
         }
 
-        else if (y <= -30)
+        else if (y <= 14)
         {
             a.yVel = -1 * a.yVel;
         }

@@ -1,5 +1,5 @@
 // Varun Patro
-
+// A 2 dimensional coordinate system to express the location of a particle/coin
 public class Position{
     public int x;
     public int y;
