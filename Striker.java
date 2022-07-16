@@ -3,8 +3,8 @@
 import java.awt.Polygon;
 public class Striker
 {    
-    public static final int HALFWIDTH = 18;
-    public static final int HALFHEIGHT = 18;
+    public static final int HALFWIDTH = 24;
+    public static final int HALFHEIGHT = 24;
     
     public static final int MASS = 15;    
     //public static final Polygon arrow = new Polygon(new int[]{405, 395, 395, 395, 405, 415, 415, 415, 405}, new int[]{610, 610, 575, 575, 560, 575, 575, 610, 610}, 9);

@@ -20,8 +20,7 @@ import java.awt.Color;
 
 
 // Board class will inherit from JPanel
-public class Board extends JPanel implements MouseListener, MouseMotionListener, KeyListener
-{
+public class Board extends JPanel implements MouseListener, MouseMotionListener, KeyListener{
     // Creates an instance of the Striker class
     public static Striker striker = new Striker(new Position 
     (385 + Striker.HALFWIDTH, 618 + Striker.HALFHEIGHT));
@@ -68,8 +67,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
     public static int startScreen = 0;
 
     
-    public Board()
-    {
+    public Board(){
         super();
         oX = arrow.xpoints[0] - striker.getXPos();
         oY = arrow.ypoints[0] - striker.getYPos();
@@ -82,10 +80,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
 
     // Called when RESTART JButton is pressed to re-initialize 
     //the fields of the Coin objects in coinList and draw them again
-    public static void setCoins()
-    {
-        for (Coin c: Collision.coinList)
-        {
+    public static void setCoins(){
+        for (Coin c: Collision.coinList){
             c.reset((int)((48 - WIDTH/2) + (Math.random()*(699 + WIDTH/2))), 
             (int)((56 - WIDTH/2) + (Math.random()*(703 + WIDTH/2))),
             new Color ((int)(Math.random()*255), 
@@ -98,8 +94,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
     }
     
     
-    public Coin makeCoin()
-    {
+    public Coin makeCoin(){
         return new Coin ((int)((48 - WIDTH/2) + (Math.random()*(699 + WIDTH/2))), 
             (int)((56 - WIDTH/2) + (Math.random()*(703 + WIDTH/2))), 
             new Color ((int)(Math.random()*255), 
@@ -110,14 +105,12 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
     }
 
     // Calls paintComponent method
-    public void update()
-    {
+    public void update(){
         repaint();
     }
     
     
-    public void paintComponent (Graphics g)
-    {
+    public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;        
 
@@ -134,8 +127,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
         //*/
         
         // Executed when the first JButton is pressed
-        if (startScreen == 1)
-        {
+        if (startScreen == 1){
             g2d.setColor(Color.black);
             g2d.fillRect(0, 0, 800, 800);
 
@@ -144,8 +136,9 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
             //g2d.fillOval(385, 391, 28, 28);
 
             //Draws striker
-            g2d.setColor(new Color (50, 240, 75));
-            g2d.fillOval(striker.getXPos() - Striker.HALFWIDTH, striker.getYPos() - Striker.HALFHEIGHT, Striker.HALFWIDTH*2, Striker.HALFHEIGHT*2);
+            g2d.setColor(new Color (255, 255, 255));
+            g2d.fillOval(striker.getXPos() - Striker.HALFWIDTH, striker.getYPos() - 
+            Striker.HALFHEIGHT, Striker.HALFWIDTH*2, Striker.HALFHEIGHT*2);
 
         
             //Draws the rest of the 18 coins
@@ -155,32 +148,26 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
             //g2d.fillOval(coin.getXPos() - Coin.WIDTH/2, coin.getYPos() - Coin.HEIGHT/2, Coin.WIDTH, Coin.HEIGHT);
 
             
-            g2d.setColor(new Color (50, 240, 75));
+            g2d.setColor(new Color (255, 255, 255));
             g2d.fillRect(striker.sPoint.x-5, striker.sPoint.y-5, 10, 10);
 
-            if(isAiming || isGrowing)
-            {
-                if (isAiming)
-                {
+            if(isAiming || isGrowing){
+                if (isAiming){
                     direction = new Vector(mouseX-striker.getXPos(),mouseY-striker.getYPos());
-                    if(direction.getY() < 0)
-                    {
+                    if(direction.getY() < 0){
                         direction = direction.scaledBy(-1);
                     }
                     direction = direction.scaledBy(1.0/direction.getMagnitude());
                 }
                 magnitude = 1;
-                if (isGrowing)
-                {
+                if (isGrowing){
                     //end = System.currentTimeMillis();
                     magnitude = getTime() - startTime;
                     int sign = -1*((((int)(magnitude/MAX_MAGNITUDE)) % 2) * 2 - 1);
-                    if (sign == -1)
-                    {
+                    if (sign == -1){
                         magnitude = MAX_MAGNITUDE - (magnitude % MAX_MAGNITUDE);
                     }
-                    else 
-                    {
+                    else {
                         magnitude = magnitude % MAX_MAGNITUDE;
                     }
                 }
@@ -196,7 +183,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
                 AffineTransform save = g2d.getTransform();
 
                 g2d.transform(at);
-                g2d.setColor(Color.blue);
+                g2d.setColor(Color.white);
                 g2d.fillPolygon(arrow);
 
                 g2d.setTransform(save);
@@ -204,19 +191,17 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
             } 
             
             // Set to true once striker is fired
-            if (hasShot)
-            {
+            if (hasShot){
                 striker.sPoint.x += striker.xVel;
                 striker.sPoint.y += striker.yVel;
-                if ((striker.sPoint.x <= 18) || (striker.sPoint.y <= 77) || (striker.sPoint.x >= 728) || (striker.sPoint.y >= 728))
-                {
+                if ((striker.sPoint.x <= 18) || (striker.sPoint.y <= 77) || 
+                (striker.sPoint.x >= 728) || (striker.sPoint.y >= 728)){
                     hasShot = false;
                 }            
             }
             // Modifies the striker's velocity vector in the event
             // that it collides with a wall
-            else
-            {
+            else{
                 collisionStrikerWall();
                 striker.sPoint.x += striker.xVel;
                 striker.sPoint.y += striker.yVel;
@@ -224,21 +209,16 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
             }
             
             // Key Demo - Translates striker
-            if (strikerShifted)
-            {
-                if (whichKey.equals("LEFT_ARROW"))
-                {
+            if (strikerShifted){
+                if (whichKey.equals("LEFT_ARROW")){
                     striker.sPoint.x -= 6;
-                    if (striker.getXPos() < 193)
-                    {
+                    if (striker.getXPos() < 193){
                         striker.sPoint.x = 193;
                     }
                 }
-                if (whichKey.equals("RIGHT_ARROW"))
-                {
+                if (whichKey.equals("RIGHT_ARROW")){
                     striker.sPoint.x += 6;
-                    if (striker.getXPos() > 603)
-                    {
+                    if (striker.getXPos() > 603){
                         striker.sPoint.x = 603;
                     }
                 }
@@ -248,15 +228,16 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
             // objects collide with each other, and swaps
             // velocity and color if they do
             for (int rep = 0; rep < Collision.coinList.size(); rep++){
-                Coin a = Collision.coinList.get(rep);
+                Coin a = Collision.coinList.get(rep);            
+                
                 Coin otherCoin = new Coin();    
                 boolean colliding = false;
                 
-                for (int sub = 0; sub < Collision.coinList.size(); sub++)
-                {
-                    if (rep != sub){
-                        colliding = Detection.collisionDetectorCoinCoin(a, Collision.coinList.get(sub));                       
+                for (int sub = 0; sub < Collision.coinList.size(); sub++){
+                    if (rep == sub){
+                        continue;                      
                     }
+                    colliding = Detection.collisionDetectorCoinCoin(a, Collision.coinList.get(sub));
                     if (colliding){
                         //rebound(a, Collision.coinList.get(sub));
                         // note the coin that it is colliding with
@@ -421,23 +402,19 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
         int x = striker.sPoint.x;
         int y = striker.sPoint.y;
 
-        if (x <= 18)
-        {
+        if (x <= 14){
             striker.xVel = -1 * striker.xVel;
         }
 
-        else if (y >= 782)
-        {
+        else if (y >= 782){
             striker.yVel = -1 * striker.yVel;
         }
 
-        else if (x >= 782)
-        {
+        else if (x >= 782){
             striker.xVel = -1 * striker.xVel;
         }
 
-        else if (y <= 77)
-        {
+        else if (y <= 14){
             striker.yVel = -1 * striker.yVel;
         }
     }
@@ -447,12 +424,12 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener,
         double x = a.getXPos();
         double y = a.getYPos();
 
-        if (x <= -30)
+        if (x <= 10)
         {
             a.xVel = -1 * a.xVel;
         }
 
-        else if (y <= -30)
+        else if (y <= 10)
         {
             a.yVel = -1 * a.yVel;
         }

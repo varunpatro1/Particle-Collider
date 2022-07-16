@@ -11,8 +11,8 @@ public class Coin
     private Color originalColor;
     private Color currentColor;
     private String color;
-    private Position point;
     
+    public Position point;
     public double xVel;
     public double yVel;
     private boolean isColliding;
